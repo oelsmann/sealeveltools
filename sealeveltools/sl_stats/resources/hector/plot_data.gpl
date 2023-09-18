@@ -1,0 +1,23 @@
+set terminal postscript enhanced size 8,4.8 color portrait solid 'Helvetica'
+set output './data_figures/1531752247502088_series_data.eps'
+set border 3;
+set xlabel 'Years' font 'Helvetica, 18';
+set ylabel 'mm' offset -1,0 font 'Helvetica, 18';
+set xtics nomirror;
+set xtics autofreq;
+set ytics nomirror;
+set ytics autofreq;
+set nokey;
+set pointsize 0.4;
+set bar 0.5;
+set xrange[*:*];
+set yrange[*:*];
+set style line 1 lt 1 lw 3 pt 7 linecolor rgb '#a6cee3'
+set style line 2 lt 1 lw 3 pt 7 linecolor rgb 'red'
+set style line 3 lt 1 lw 3 pt 2 linecolor rgb 'black'
+plot './mom_files/1531752247502088_series.mom' u (($1-51544)/365.25+2000):2 w p ls 1,\
+     './mom_files/1531752247502088_series.mom' u (($1-51544)/365.25+2000):3 w l ls 2,\
+     './model_outliers.out' u  (($1-51544)/365.25+2000):2 w p ls 3
+
+set output './data_figures/1531752247502088_series_res.eps'
+plot './mom_files/1531752247502088_series.mom' u  (($1-51544)/365.25+2000):($2-$3) w l ls 2

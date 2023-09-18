@@ -1,0 +1,17 @@
+
+**************************************
+    removeoutliers, version 1.7.2
+**************************************
+Data format: MJD, Observations, Model
+Filename              : ./obs_files/1670509522090575_series.mom
+Number of observations: 242
+Percentage of gaps    : 36.78
+after removal gaps, m=153
+No Polynomial degree set, using offset + linear trend
+No extra periodic signal is included.
+Found 2 bad points.
+after removal gaps, m=151
+No Polynomial degree set, using offset + linear trend
+No extra periodic signal is included.
+Found 0 bad points.
+--> ./pre_files/1670509522090575_series.mom

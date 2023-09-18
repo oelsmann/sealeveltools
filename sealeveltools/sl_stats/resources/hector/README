@@ -1,0 +1,45 @@
+
+All Python scripts call Python 3 as 'python3'. If this does not exist on
+your system, create a symbolic link. apply_WF requires the numpy module.
+
+
+
+analyse_timeseries.py: workhorse script that calls removeoutliers and
+	estimatetrend. Argument is station name + noise model combination.
+	The output is a string of numbers that can be parsed by other 
+	scripts. See manual for more details.
+
+analyse_and_plot.py: high level script that calls analyse_time series to 
+	analyse and plot all time series in the ./obs_files directory. It
+	assumes these are in the mom format. Argument is noise model 
+	combination.
+
+apply_WF.py: computes a varying annual + semi-annual signal for a 
+	time series stored in ./obs_files. Argument is station name +
+	phi (the coefficient of the AR1 noise describing the random part
+	of the seasonal signal). It makes use of analyse_timeseries.py
+	Estimated seasonal signal is stored in ./sea_files while the
+	signal-seasonal signal (filtered signal) is stored in ./fil_files.
+
+convert_neu2mom.py: script to convert all *.neu files in the ./ori_files
+	directory (format used by SOPAC and JPL) to my mom format, which
+	are stored in the raw_files directory.
+
+convert_sol2mom.py: script to convert all *.sol files in the ./ori_files
+	directory (format used by GIPSY/OASIS) to my mom format, which
+	are stored in the raw_files directory.
+
+convert_tenv32mom.py: script to convert all *.tenv.txt files in the ./ori_files
+	directory (format used by Nevada Geodetic Laboratory) to my mom 
+	format, which are stored in the raw_files directory.
+
+find_offset.py: script to find offset for a particular time series stored in
+	the ./raw_directory. Arguments are station name, noise model 
+	combination and, optionally, the label '3D'. The latter assumes that
+	the filenames follow the XXXX_[012] convention. That is, _0 contains
+	East component, _1 contains North component and _2 the up component.
+	XXXX is the station name.
+
+find_all_offsets.py: simply a wrapper to find_offset.py which runs the offset
+	detection on all files stored in ./raw_files using the 3D option
+	and using the PLWN noise model.

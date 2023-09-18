@@ -1,0 +1,21 @@
+set terminal postscript enhanced size 4,4 color portrait solid "Helvetica"
+set output './psd_figures/test_psd.eps'
+set border 3;
+set xlabel 'Frequency (cpy)' font 'Helvetica, 18';
+set ylabel 'Power (mm^2/cpy)' offset -1,0 font 'Helvetica, 18'
+set xtics nomirror;
+set xtics autofreq;
+set ytics nomirror;
+set ytics autofreq;
+set logscale xy;
+set nokey;
+set format y '10^{%T}';
+set format x '10^{%T}';
+set pointsize 1;
+set xrange[*:200];
+set yrange[*:*];
+s=31557600.0;
+set style line 1 lt 1 lw 3 pt 7 linecolor rgb "#a6cee3"
+set style line 2 lt 1 lw 3 pt 7 linecolor rgb "red"
+plot 'estimatespectrum.out' using ($1*s):($2/s) w p ls 1,\
+     'modelspectrum.out'    using ($1*s):($2/s) w l ls 2

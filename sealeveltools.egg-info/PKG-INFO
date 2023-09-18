@@ -1,0 +1,11 @@
+Metadata-Version: 1.2
+Name: sealeveltools
+Version: 0.0.1
+Summary: A project to handle sea level data (altimetry, tide-gauges, models) and statistical exploitation tools
+Home-page: https://gitlab.lrz.de/iulius/sea_level_tool.git
+Author: Julius Oelsmann
+Author-email: julius.oelsmann@tum.de
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
